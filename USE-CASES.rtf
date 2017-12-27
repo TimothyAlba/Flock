@@ -1,0 +1,44 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red38\green38\blue38;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c19608\c19608\c19608;\cssrgb\c100000\c100000\c100000;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ===============================\
+		What is this?\
+===============================\
+\'93\cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Use cases are built to refine a set of requirements based on a role or task. Instead of the traditional list of requirements that may not directly address the use of the solution, use cases group common requirements based on the type of role or goal. Use cases define what the users or roles will be doing in the solution,\'94 - IBM Knowledge Center\cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+{\field{\*\fldinst{HYPERLINK "https://www.ibm.com/support/knowledgecenter/en/SSWSR9_11.0.0/com.ibm.pim.dev.doc/pim_tsk_arc_definingusecases.html"}}{\fldrslt https://www.ibm.com/support/knowledgecenter/en/SSWSR9_11.0.0/com.ibm.pim.dev.doc/pim_tsk_arc_definingusecases.html}}\
+\
+TLDR: Use cases textually describe a scenario/event/action performed by an actor(s) with a happy path solution. Describing how a Person withdraws money from an ATM would be an example of a use case.\
+\
+===============================\
+		Actors\
+===============================\
+- User: the person using the Program\
+- Program: the Flock program\
+- Peer: connection information for remote Program/User stored in local Program\
+\
+===============================\
+		User\
+===============================\
+\
+1) NEW-CONNECTION: User selects \'91New Connection\'92 and enters the Peer\'92s IP and port before clicking on \'91Connect\'92. Program sends out connection request to specified Peer and waits for reply; if timeout program informs User and returns to main menu, else Program initializes chat using the reply information from Peer.\
+\
+2) LISTEN: User selects \'91Listen\'92 and the Program goes into a waiting period; if Program hears a connection request it initializes the chat and sends a reply back to the Peer to confirm connection.\
+\
+3) MESSAGE: User enters a message and selects \'91Send\'92, then the Program sends the message out to all of its Peers and updates the User\'92s chat.\
+\
+4) DISCONNECT: User selects \'91Disconnect\'92 and Program sends out a disconnect notification to all Peers.\
+\
+===============================\
+		Program\
+===============================\
+\
+1) NEW-CONNECTION: Program receives a connection request from a new Peer and adds Peer to list of connections. Then Program replies to Peer with the state of the current chat and Peer list.\
+\
+2) MESSAGE: Program receives a message from a Peer and updates the chat.\
+\
+3) DISCONNECT: Program receives a disconnect notification from a Peer and removes the Peer from its connection list.}
