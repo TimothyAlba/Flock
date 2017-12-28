@@ -20,9 +20,10 @@ public class Connection {
         //  Blocked Constructor
     }
     
-    public Connection(InetAddress ip, int port){
+    public Connection(InetAddress ip, int port, int sequence){
         this.ip = ip;
         this.port = port;
+        this.sequence = sequence;
     }
     
     public void incrementSequence(){
