@@ -27,12 +27,28 @@ public class ConnectionManager {
     }
     
     public boolean addConnection(InetAddress ip, int port, int sequence){
-        
+        if(findConnection(ip, port) == -1){
+            connections.add(new Connection(ip, port, sequence));
+            return true;
+        }
+        return false;
     }
     
     public boolean removeConnection(InetAddress ip, int port){
+        int connIndex = findConnection(ip, port);
         
+        if(connIndex != -1){
+            connections.remove(connIndex);
+            return true;
+        }
+        return false;
     }
     
-    private int 
+    private int findConnection(InetAddress ip, int port){
+        for(Connection conn : connections){
+            if(conn.checkConnection(ip, port))
+                return connections.indexOf(conn);
+        }
+        return -1;
+    }
 }
