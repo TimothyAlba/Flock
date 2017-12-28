@@ -27,4 +27,9 @@ public class FlockProtocol {
     private static final int HLEN = TYPE_LENGTH + FLAG_LENGTH + SEQ_LENGTH +
             ACK_LENGTH + CRC_LENGTH;
     private static final int PAYLOAD_MAX_SIZE = 4096 - HLEN;
+    
+    public FlockProtocol(){
+        //  Creating a difference file and committing it to head to see if fetch
+        //  or pull will delete this change.
+    }
 }
