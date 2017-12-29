@@ -5,11 +5,15 @@
  */
 package network;
 
+import chat.NetworkAdapter;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.UnknownHostException;
 /**
  *
  * @author up6071fd
  */
-public class FlockProtocol {
+public class FlockProtocol implements NetworkAdapter{
     
     //  Header field information that includes field length and relative-offset
     //  with regards to other header fields.
@@ -28,8 +32,24 @@ public class FlockProtocol {
             ACK_LENGTH + CRC_LENGTH;
     private static final int PAYLOAD_MAX_SIZE = 4096 - HLEN;
     
+    
+    
     public FlockProtocol(){
-        //  Creating a difference file and committing it to head to see if fetch
-        //  or pull will delete this change.
+        
+    }
+    
+    @Override
+    public void sendTextMessage(String message){
+        
+    }
+    
+    @Override
+    public void connect(String ipv4Address, int port){
+        
+    }
+    
+    @Override
+    public void disconnect(){
+        
     }
 }
