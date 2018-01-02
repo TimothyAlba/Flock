@@ -11,7 +11,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import network.Connection;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
@@ -19,22 +18,22 @@ import java.net.UnknownHostException;
  *
  * @author up6071fd
  */
-public class ConnectionTest {
+public class PeerTest {
     
-    public Connection conn;
+    public Peer conn;
     public InetAddress goodIP;
     public InetAddress badIP;
     public int port;
     public int sequence;
     
-    public ConnectionTest() {
+    public PeerTest() {
         byte [] ip = new byte [4];
         goodIP = null;
         badIP = null;
         
-        while(goodIP == null && badIP == null){
-            for(byte byteOctet : ip){
-                byteOctet = (byte)((int)(Math.random() * 255));
+        while(goodIP == null || badIP == null){
+            for(int i = 0; i < ip.length; i++){
+                ip[i] = (byte)((int)(Math.random() * 255));
             }
             try{
                 if(goodIP == null)
@@ -50,7 +49,7 @@ public class ConnectionTest {
         sequence = (int)(Math.random() * Integer.MAX_VALUE);
         
         
-        conn = new Connection(goodIP, port, sequence);
+        conn = new Peer(goodIP, port, sequence);
     }
     
     @BeforeClass

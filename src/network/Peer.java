@@ -10,17 +10,17 @@ import java.net.InetAddress;
  *
  * @author up6071fd
  */
-public class Connection {
+class Peer {
     
     private InetAddress ip;
     private int port;
     private int sequence;
     
-    protected Connection(){
+    protected Peer(){
         //  Blocked Constructor
     }
     
-    public Connection(InetAddress ip, int port, int sequence){
+    public Peer(InetAddress ip, int port, int sequence){
         this.ip = ip;
         this.port = port;
         this.sequence = sequence;
