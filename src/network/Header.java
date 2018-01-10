@@ -28,9 +28,16 @@ class Header {
             ACK_LENGTH + CRC_LENGTH;
     private static final int PAYLOAD_MAX_SIZE = 4096 - HLEN;
     
+    private final ConnectionManager connections;
+    
     protected Header(){
         //  Blocked Constructor
+        connections = null;
     }
     
+    public Header(ConnectionManager connections){
+        this.connections = connections;
+    }
     
+    public int get
 }
